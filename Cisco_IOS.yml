@@ -1,0 +1,19 @@
+---
+vars:
+  cli:
+    host: "{{ inventory_hostname }}"
+    username: admin
+    password: nMOO4R3V
+    transport: cli
+
+---
+# sammeln alle Information
+- ios_facts:
+    gather_subset: all
+    provider: "{{ cli }}"
+
+# sammeln Konfiguration
+- ios_facts:
+    gather_subset:
+      - config
+    provider: "{{ cli }}"
